@@ -1,0 +1,29 @@
+<!-- <app-header></app-header> -->
+<div>
+  <mat-toolbar color="primary">
+      <button type="button" mat-button *ngIf="isAuthenticated" (click)="drawer.toggle()">
+         <mat-icon>menu</mat-icon>
+        </button>
+    <span>App</span>
+    <span class="example-spacer"></span>
+      <button mat-raised-button *ngIf="!isAuthenticated" routerLinkActive="active-link" routerLink="/">
+        <span>Login</span>
+      </button>&nbsp;
+      <button mat-raised-button *ngIf="isAuthenticated" (click)="logout()" routerLinkActive="active-link" routerLink="/login">
+        <span>Logout</span>
+      </button>
+      <button mat-raised-button *ngIf="!isAuthenticated" routerLinkActive="active-link" routerLink="/signup">
+        <span>Signup</span>
+      </button>
+    
+  </mat-toolbar>
+</div>
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+<div class="btn-side-nav">
+  <button mat-raised-button class="side-btn" routerLink="/home" routerLinkActive="active-link">Home</button><br>
+  <button mat-raised-button class="side-btn" routerLink="/home" routerLinkActive="active-link">Setting</button><br>
+</div>  
+  </mat-drawer>
+  <router-outlet></router-outlet>
+</mat-drawer-container>
